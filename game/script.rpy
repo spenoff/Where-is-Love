@@ -160,6 +160,65 @@ label callShelly:
     return
 
 label sirenRouteBeginning:
+    pov "Well, this looks like the right place!"
+    pov "There are a lot of beach houses here!"
+    pov "I should call Shelly."
+    phone "**Rings**"
+    shelly "[povName]! What's taking you so long?!"
+    pov "I'm at there street!"
+    shelly "Oh good! Now look for the red house and tell me when you get there!"
+    phone "**beeps**"
+
+label sirenRoute0_1:
+    menu:
+        "Which way should I go?"
+
+        "Forward":
+            jump sirenRoute1_1
+        "Left":
+            jump sirenRoute0_0
+        "Right":
+            jump sirenRoute0_2
+
+label sirenRoute0_0:
+    menu:
+        "Which way should I go?"
+
+        "Forward":
+            jump sirenRoute1_0
+        "Right":
+            jump sirenRoute0_1
+
+label sirenRoute0_2:
+    menu:
+        "Which way should I go?"
+
+        "Forward":
+            jump sirenRoute1_2
+        "Left":
+            jump sirenRoute0_1
+
+label sirenRoute1_2:
+    menu:
+        "Which way should I go?"
+
+        "Backward":
+            jump sirenRoute0_2
+        "Left":
+            jump sirenRoute1_1
+
+label sirenRoute1_1:
+    menu:
+        "Which way should I go?"
+
+        "Backward":
+            jump sirenRoute0_1
+        "Left":
+            jump sirenRoute1_0
+        "Right":
+            jump sirenRoute1_2
+
+label sirenRoute1_0:
     pov "Placeholder"
     return
 
