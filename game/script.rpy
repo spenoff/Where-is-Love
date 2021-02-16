@@ -9,6 +9,7 @@ define child = Character("Child")
 define oldPerson = Character("Old Person")
 define app = Character("App")
 define phone = Character("Phone")
+define redHouseFound = False
 
 # The game starts here.
 
@@ -219,7 +220,51 @@ label sirenRoute1_1:
             jump sirenRoute1_2
 
 label sirenRoute1_0:
-    pov "Placeholder"
+    if not redHouseFound:
+        python:
+            redHouseFound = True
+        pov "Well, here is the red house!"
+        phone "**Rings**"
+        shelly "Hello?"
+        pov "Hey, I found the red house!"
+        shelly "Nice!"
+        shelly "now listen for the music!"
+        phone "**beeps**"
+        pov "Hey! The beach is right there!"
+        pov "And I hear music coming from there!"
+    else:
+        pov "Well, I haven't heard music anywhere else..."
+    menu:
+        "What should I do?"
+
+        "Go to the beach":
+            jump sirenRouteEnding
+        "Go backward":
+            jump sirenRoute0_0
+        "Go right":
+            jump sirenRoute1_1
+
+label sirenRouteEnding:
+    pov "Is that her?!?!"
+    shelly "Hey there!"
+    pov "You're a mermaid???"
+    shelly "Well yes, I am. I hope that's okay with you."
+    pov "No, totally fine!"
+    pov "You look beautiful!"
+    shelly "Thank you!"
+    shelly "You look nice yourself."
+    pov "Thank you"
+    shelly "Lets go swimming!"
+
+    pov "(We head into the ocean, she leads me into a very far deep end.)"
+    pov "(And then... the pushes me down into the water)"
+    pov "(I manage to escape and swim upwards)"
+
+    pov "Shelly! What was that?!?!"
+    shelly "I'm not shelly. Goodbye."
+
+    pov "(And that's how I died)"
+    pov "(Game Over)"
     return
 
 label trueRouteBeginning:

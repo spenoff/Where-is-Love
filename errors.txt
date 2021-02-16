@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 116: choice menuitem expects a non-empty block.
-    "There street":
-                   ^
+File "game/script.rpy", line 224: expected statement.
+    redHouseFound = True
+                  ^
 
 Ren'Py Version: Ren'Py 7.4.2.1292
-Tue Feb 16 02:58:30 2021
+Tue Feb 16 04:38:16 2021
