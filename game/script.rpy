@@ -38,7 +38,7 @@ label start:
     
     pov "(It's almost Valentines Days, and I am single.)"
 
-    pov "(I was desparate, so I downloaded a dating app called Saucer.)"
+    pov "(I was desperate, so I downloaded a dating app called Saucer.)"
 
     pov "(And after weeks of swiping...)"
 
