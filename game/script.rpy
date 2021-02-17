@@ -25,16 +25,26 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    app "Congratulations! Shelly likes you back!"
-
-    shelly "Heyyy. What's your name?"
-
     python:
         povName = renpy.input("My name is...", length=32)
         povName = povName.strip()
 
         if not povName:
             povName = "Spencer"
+    
+    pov "(It's almost Valentines Days, and I am single.)"
+
+    pov "(I was desparate, so I downloaded a dating app called Saucer.)"
+
+    pov "(And after weeks of swiping...)"
+
+    app "Congratulations! Shelly likes you back!"
+
+    pov "(Now my finger can finally take a break, and aparently someone unfortuante enough likes me back.)"
+
+    pov "(In fact, she was unfortunate enough to text me first.)"
+
+    shelly "Heyyy. What's your name?"
         
     pov "My name is [povName]!"
 
@@ -44,25 +54,35 @@ label start:
 
     shelly "My name is Shelly!"
 
-    pov "(I know)"
+    pov "(I know.)"
 
-    pov "Nice to meet you Shelly! So what brings you to my profile?"
+    pov "Nice to meet you Shelly!"
 
-    shelly "Your dog! She's so cute!"
+    shelly "Your dog is so cute!"
+
+    pov "Aw thank you!"
+
+    pov "(She's probably just interested in my dog, but lets see how this goes.)"
 
     shelly "Also could you tell me about the novel you're writing?"
 
-    pov "Aw thank you! And sure!"
+    pov "Sure!"
+
+    pov "(So she isn't just interested in my dog... nice to know.)"
+
+    pov "(At first, I thought it was a dream.)"
+
+    pov "(But... it was real! I knew because my dog bit me and I felt the pain!)"
 
     pov "(And so we would continue talking for weeks, and finally on Valentines Day...)"
 
-    shelly "Wanna meet up?"
+    shelly "So... think it's time to meet up now?"
 
-    pov "Sure when?"
+    pov "Sure, when?"
 
     shelly "Right now!"
 
-    pov "(thanks for the notice)"
+    pov "(Thanks for the notice...)"
 
     shelly "Come meet me at the beach, go to there street and I'll tell you where to go next"
 
@@ -70,11 +90,9 @@ label start:
 
     shelly "Just past the highway 200 feet away from your house. See you there!"
 
-    shelly "(hangs up)"
-
     pov "(and so I drove over to that highway)"
 
-    pov "(and just as I got there... the highway closed)"
+    pov "(and just as I got there... the highway closed!)"
 
     pov "(and there was a drunk driver behind me, I had to get away, so I drove into a path that led to the woods.)"
 
