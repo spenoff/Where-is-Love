@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 224: expected statement.
-    redHouseFound = True
+File "game/script.rpy", line 305: expected statement.
+    childSpokenTo = True
                   ^
 
+File "game/script.rpy", line 334: expected ':' not found.
+    label beach
+               ^
+
 Ren'Py Version: Ren'Py 7.4.2.1292
-Tue Feb 16 04:38:16 2021
+Wed Feb 17 03:14:23 2021

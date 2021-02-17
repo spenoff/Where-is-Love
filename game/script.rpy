@@ -5,11 +5,15 @@
 
 define pov = Character("[povName]")
 define shelly = Character("Shelly")
-define child = Character("Child")
+define kid = Character("Child")
 define oldPerson = Character("Old Person")
+define florist = Character("Florist")
 define app = Character("App")
 define phone = Character("Phone")
 define redHouseFound = False
+define musiciansFound = False
+define childSpokenTo = False
+define flowersGiven = False
 
 # The game starts here.
 
@@ -286,7 +290,170 @@ label sirenRouteEnding:
     return
 
 label trueRouteBeginning:
-    pov "Placeholder"
+    pov "A city?"
+    pov "Sure doesn't look like a place to find a beach."
+    menu:
+        "What should I do?"
+
+        "Go to there street":
+            jump sirenRouteBeginning
+        "Keep going":
+            pov "Well, if this is it, I should tell Shelly that I'm here."
+            phone "**Rings**"
+            phone "**Rings**"
+            shelly "[povName]! What's taking you so long?!"
+            pov "I'm at there street!"
+            shelly "Oh good! Now look for the red house and tell me when you get there!"
+            phone "**beeps**"
+
+label city0_1:
+    if redHouseFound and musiciansFound and not childSpokenTo:
+        python:
+            childSpokenTo = True
+        kid "..."
+        pov "Hey there... are you okay."
+        kid "My dad shot my dog... we had to bury him by our cabin..."
+        kid "I was going to give flowers to him but... I have no money"
+        pov "I was going to give these flowers to Shelly but..."
+
+        menu:
+            "What should I do?"
+
+            "Give the poor kid the flowers":
+                jump giveFlowers
+            "These are for Shelly":
+                jump dontGiveFlowers
+    menu:
+        "Which way should I go?"
+
+        "Forward":
+            jump city1_1
+        "Left":
+            jump city0_0
+        "Right":
+            jump city0_2
+
+label city0_0:
+    if redHouseFound and musiciansFound and childSpokenTo:
+        pov "Well, heres the house with the surfboard!"
+        pov "The beach is right behind it? Weird."
+        pov "Well here we go. [povName], you got this."
+        jump beach
+
+    menu:
+        "Which way should I go?"
+
+        "Forward":
+            jump city1_0
+        "Right":
+            jump city0_1
+
+label city0_2:
+    if not redHouseFound:
+        python:
+            redHouseFound = True
+        pov "Well, here is the red house!"
+        phone "**Rings**"
+        shelly "Hello?"
+        pov "Hey, I found the red house!"
+        shelly "Nice!"
+        shelly "Now listen for the music!"
+        phone "**beeps**"
+        jump city0_1
+        
+
+    menu:
+        "Which way should I go?"
+
+        "Forward":
+            jump city1_2
+        "Left":
+            jump city0_1
+
+label city1_2:
+    menu:
+        "Which way should I go?"
+
+        "Backward":
+            jump city0_2
+        "Left":
+            jump city1_1
+
+label city1_1:
+    if redHouseFound and not musiciansFound:
+        python:
+            musiciansFound = True
+        pov "Wow! Street musicians!"
+        phone "**Rings**"
+        shelly "Hello?"
+        pov "Hey, I found some street musicians, that must be where the music is coming from!"
+        shelly "Yup! Thats it!"
+        shelly "Now go forward and look for a house with a surfboard!"
+        phone "**beeps**"
+        jump city0_1
+    menu:
+        "Which way should I go?"
+
+        "Backward":
+            jump city0_1
+        "Left":
+            jump city1_0
+        "Right":
+            jump city1_2
+
+label city1_0:
+    menu:
+        "Which way should I go?"
+
+        "Backward":
+            jump city0_1
+        "Right":
+            jump city1_1
+
+label giveFlowers:
+    python:
+        flowersGiven = True
+    pov "(I offer him the flowers.)"
+    kid "...THANK YOU THANK YOU THANK YOU"
+
+    florist "That was... very nice of you."
+    florist "Don't tell my boss but... take these."
+
+    pov "(I recieved purple flowers from the florist.)"
+
+    florist "I hope you have a good day!"
+    jump flowers
+
+label dontGiveFlowers:
+    pov "Well... its the thought that counts..."
+    kid "..."
+
+label flowers:
+    phone "Hey! I can't wait for the flowers, I hope they’re purple."
+    phone "**clicks**"
+    if not flowersGiven:
+        pov "Oh boy..."
+    jump city0_1
+    
+label beach:
+    shelly "Heyyy"
+    pov "Hey!"
+    pov "I brought you some flowers."
+    shelly "aw thank you!"
+
+    if not flowersGiven:
+        shelly "ohh... I guess you forgot my favorite color."
+        pov "shoot..."
+        pov "Game Over"
+        return
+
+    shelly "OH! I love them!"
+
+    pov "And we went on to have a good date."
+
+    pov "And we had many more, and we lived a happy life together"
+
     return
+
 
         
