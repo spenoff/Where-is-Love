@@ -228,7 +228,7 @@ label sirenRoute1_0:
         shelly "Hello?"
         pov "Hey, I found the red house!"
         shelly "Nice!"
-        shelly "now listen for the music!"
+        shelly "Now listen for the music!"
         phone "**beeps**"
         pov "Hey! The beach is right there!"
         pov "And I hear music coming from there!"
@@ -261,7 +261,7 @@ label sirenRouteEnding:
     pov "(I manage to escape and swim upwards)"
 
     pov "Shelly! What was that?!?!"
-    shelly "I'm not shelly. Goodbye."
+    shelly "I'm not Shelly. Goodbye."
 
     pov "(And that's how I died)"
     pov "(Game Over)"
