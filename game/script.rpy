@@ -150,13 +150,106 @@ label lostContinued:
         "What should I do?"
 
         "Go with him":
-            jump deathRouteBeginning
+            jump woodRouteBeginning
         "Nah":
             jump streetSigns
 
-label deathRouteBeginning:
-    pov "Placeholder"
-    return
+label woodRouteBeginning:
+    oldPerson "Well, here we are!"
+    pov "Thank you sir! How can I repay you?"
+    oldPerson "Oh ho ho, no need"
+    
+    pov "I should tell Shelly that I'm here."
+    phone "**Rings**"
+    shelly "[povName]! What's taking you so long?!"
+    pov "I'm at there street!"
+    shelly "Oh good! Now look for the red house and tell me when you get there!"
+    phone "**beeps**"
+
+label woodRoute0_1:
+    if redHouseFound:
+        pov "Theres no music anywhere!"
+        oldPerson "Hey there, you look lost."
+        pov "Are you sure this is there street?"
+        oldPerson "There street? I thought you said Bear street."
+        pov "..."
+        pov "(I walk back to the highway.)"
+        pov "(It was a long walk. I call Shelly.)"
+        phone "**Rings**"
+        shelly "[povName] What do you want?"
+        pov "Hey I'm really sorry, I got lost."
+        shelly "Well now you can stay lost. You dumped me on our first date. Goodbye!"
+        phone "**beeps**"
+        pov "Well..."
+        pov "Game Over"
+        return
+    menu:
+        "Which way should I go?"
+
+        "Forward":
+            jump woodRoute1_1
+        "Left":
+            jump woodRoute0_0
+        "Right":
+            jump woodRoute0_2
+
+label woodRoute0_0:
+    menu:
+        "Which way should I go?"
+
+        "Forward":
+            jump woodRoute1_0
+        "Right":
+            jump woodRoute0_1
+
+label woodRoute0_2:
+    menu:
+        "Which way should I go?"
+
+        "Forward":
+            jump woodRoute1_2
+        "Left":
+            jump woodRoute0_1
+
+label woodRoute1_2:
+    menu:
+        "Which way should I go?"
+
+        "Backward":
+            jump woodRoute0_2
+        "Left":
+            jump woodRoute1_1
+
+label woodRoute1_1:
+    if not redHouseFound:
+        python:
+            redHouseFound = True
+        pov "Well here's a... red house..."
+        phone "**Rings**"
+        shelly "Hello?"
+        pov "Hey, I found the red house!"
+        shelly "Nice!"
+        shelly "Now listen for the music!"
+        phone "**beeps**"
+
+    menu:
+        "Which way should I go?"
+
+        "Backward":
+            jump woodRoute0_1
+        "Left":
+            jump woodRoute1_0
+        "Right":
+            jump woodRoute1_2
+
+label woodRoute1_0:
+    menu:
+        "What should I do?"
+
+        "Go backward":
+            jump woodRoute0_0
+        "Go right":
+            jump woodRoute1_1
 
 label streetSigns:
     pov "(I leave the woods, and I walk to where the highway is, and take the walking path.)"
