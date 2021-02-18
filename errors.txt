@@ -2,13 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 305: expected statement.
-    childSpokenTo = True
-                  ^
-
-File "game/script.rpy", line 334: expected ':' not found.
-    label beach
-               ^
+File "game/script.rpy", line 578: indentation mismatch.
 
 Ren'Py Version: Ren'Py 7.4.2.1292
-Wed Feb 17 03:14:23 2021
+Thu Feb 18 04:42:57 2021

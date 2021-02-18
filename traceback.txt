@@ -1,22 +1,68 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 325, in script
-    jump dontGiveFlowers
-ScriptError: could not find label 'dontGiveFlowers'.
+While loading <'Image' u'sad_boy_thankful.png'>:
+  File "game/script.rpy", line 624, in script
+    kid "...THANK YOU THANK YOU THANK YOU"
+IOError: Couldn't find file 'sad_boy_thankful.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 325, in script
-    jump dontGiveFlowers
-  File "/Applications/renpy-7.1.3-sdk/renpy/ast.py", line 1711, in execute
-    rv = renpy.game.script.lookup(target)
-  File "/Applications/renpy-7.1.3-sdk/renpy/script.py", line 900, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'dontGiveFlowers'.
+  File "game/script.rpy", line 624, in script
+    kid "...THANK YOU THANK YOU THANK YOU"
+  File "/Applications/renpy-7.1.3-sdk/renpy/ast.py", line 715, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/Applications/renpy-7.1.3-sdk/renpy/exports.py", line 1384, in say
+    who(what, *args, **kwargs)
+  File "/Applications/renpy-7.1.3-sdk/renpy/character.py", line 1179, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "/Applications/renpy-7.1.3-sdk/renpy/character.py", line 851, in do_display
+    **display_args)
+  File "/Applications/renpy-7.1.3-sdk/renpy/character.py", line 601, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/Applications/renpy-7.1.3-sdk/renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/core.py", line 3007, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/core.py", line 3517, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/core.py", line 2377, in draw_screen
+    renpy.config.screen_height,
+  File "render.pyx", line 492, in renpy.display.render.render_screen
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/layout.py", line 751, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/layout.py", line 751, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/layout.py", line 751, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/transform.py", line 927, in render
+    return transform_render(self, width, height, st, at)
+  File "accelerator.pyx", line 116, in renpy.display.accelerator.transform_render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/image.py", line 501, in render
+    return wrap_render(self.target, width, height, st, at)
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/image.py", line 307, in wrap_render
+    rend = render(child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/im.py", line 607, in render
+    return cache.get(self, render=True)
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/im.py", line 271, in get
+    surf = image.load()
+  File "/Applications/renpy-7.1.3-sdk/renpy/display/im.py", line 651, in load
+    filelike = renpy.loader.load(self.filename)
+  File "/Applications/renpy-7.1.3-sdk/renpy/loader.py", line 798, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'sad_boy_thankful.png'.
 
 Darwin-20.3.0-x86_64-i386-64bit
 Ren'Py 7.4.2.1292
 Where is Love 1.0
-Wed Feb 17 03:24:39 2021
+Thu Feb 18 02:02:43 2021
